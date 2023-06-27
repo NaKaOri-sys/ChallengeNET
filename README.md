@@ -19,4 +19,6 @@ Si tenes alguna pregunta o necesitas más información, no dudes en contactarme.
 1. Clona el repositorio en tu máquina local.
 2. Configura la cadena de conexión a tu base de datos SQL Server en el archivo `appsettings.json`.
 3. Abre el proyecto en tu IDE favorito y realiza las migraciones de la base de datos utilizando el comando `dotnet ef database update`.
-4. Ejecuta la aplicación y accede a través de tu navegador web.
+4. Abre la pestaña de "set multiple startup proyect" para iniciar los proyectos WebApi y Client al mismo tiempo.
+5. En WebApi crea las tarjetas necesarias y los balances correspondientes a esas tarjetas.
+6. Ahora si, podes navegar en el ejercicio.
