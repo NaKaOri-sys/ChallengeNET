@@ -36,10 +36,11 @@ namespace ChallengeNET.Client.Controllers
             var httpClient = new HttpClient();
             try
             {
-                var response = await httpClient.GetAsync(_options.Tarjetas + "?nro_tarjeta=" + nro_tarjeta);
+                nro_tarjeta = nro_tarjeta.Replace("-", "");
+                var response = await httpClient.GetAsync(_options.Tarjetas + nro_tarjeta);
                 response.EnsureSuccessStatusCode();
                 var json = await response.Content.ReadAsStringAsync();
-                var tarjeta = JsonConvert.DeserializeObject<List<TarjetaVM>>(json).FirstOrDefault();
+                var tarjeta = JsonConvert.DeserializeObject<TarjetaVM>(json);
                 if (tarjeta.tarjeta_bloqueada)
                 {
                     throw new Exception("Tarjeta bloqueada");

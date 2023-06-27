@@ -65,7 +65,7 @@ namespace ChallengeNET.Client.Controllers
             catch (Exception ex)
             {
                 TempData["Mensaje"] = ex.Message;
-                return StatusCode(500, ex.Message);
+                return Redirect("/Home/Error");
             }
         }
 

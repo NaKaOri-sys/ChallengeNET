@@ -1,6 +1,17 @@
 ﻿$(document).ready(function () {
-    $('#campo').inputmask('9999-9999-9999');
     $('#btn-exit').hide();
+    $('.table_teclado tr td').on('click', function () {
+        var input = $('#campo');
+        var num = input.val().replace(/\s/g, '').replace(/\D/g, ''); // Eliminar espacios y caracteres que no sean dígitos
+        var formattedNum = '';
+        for (var i = 0; i < num.length; i++) {
+            if (i > 0 && i % 4 === 0) {
+                formattedNum += '-';
+            }
+            formattedNum += num[i];
+        }
+        input.val(formattedNum);
+    });
 });
 $('#btn-submit').on('click', {}, function () {
     let campoValue = $('#campo').val();
@@ -14,31 +25,5 @@ $('#btn-submit').on('click', {}, function () {
         window.location.href = "/Home/IngresaPinView";
     }).fail(function (xhr, status, error) {
         window.location.href = "/Home/Error";
-    });
-});
-let intentos = 0;
-let intentosMax = 4;
-$('#btn-aceptar').on('click', {}, function () {
-    let campoValue = $('#campo').val();
-    if (campoValue === '') {
-        alert("Por favor, ingresa el pin antes de continuar.")
-        return;
-    }
-    if (intentos === 4) {
-        $.post("/Home/BloquearTarjeta")
-            .done(function (response) {
-                window.location.href = "/Home/TarjetaBloqueada";
-            }).fail(function (xhr, status, error) {
-                window.location.href = "/Home/Error";
-            });
-        return;
-    }
-
-    $.post("/Home/ValidateCVV", { pin_tarjeta: campoValue }
-    ).done(function (response) {
-        window.location.href = "/Operacion/Operaciones";
-    }).fail(function (xhr, status, error) {
-        alert('El código ingresado es incorrecto, intentos restantes:' + (intentosMax - intentos));
-        intentos++;
     });
 });

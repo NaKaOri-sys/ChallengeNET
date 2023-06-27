@@ -11,3 +11,6 @@
 
     });
 });
+$('#btn-exit').click(function () {
+    document.cookie = 'nro_tarjeta=;expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+});

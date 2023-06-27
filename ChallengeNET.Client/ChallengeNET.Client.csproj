@@ -15,9 +15,4 @@
     <ProjectReference Include="..\ChallengeNET.Shared\ChallengeNET.Shared.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Include="wwwroot\Plugins\Inputmask\.github\FUNDING.yml" />
-    <None Include="wwwroot\Plugins\Inputmask\.github\ISSUE_TEMPLATE\issue-report.md" />
-  </ItemGroup>
-
 </Project>
