@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.14" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ChallengeNET.Application\ChallengeNET.Application.csproj" />
+    <ProjectReference Include="..\ChallengeNET.Shared\ChallengeNET.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Plugins\Inputmask\.github\FUNDING.yml" />
+    <None Include="wwwroot\Plugins\Inputmask\.github\ISSUE_TEMPLATE\issue-report.md" />
+  </ItemGroup>
+
+</Project>
