@@ -4,7 +4,6 @@
 }
 @model RetiroVM
 <div class="text-center">
-    <h1>Retiro</h1>
     <h2>Por favor ingrese el monto a retirar.</h2>
     @Html.TextBoxFor(x => x.monto_retiro, new {@readonly = "readonly", @class = "teclado_text", @type = "text", @id = "campo"})
     <button class="btn btn-primary" id="btn-aceptar" type="submit">Aceptar</button>

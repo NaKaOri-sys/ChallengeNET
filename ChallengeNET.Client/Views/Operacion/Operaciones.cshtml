@@ -3,8 +3,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @model List<OperacionesVM>
-
-<h1>Operaciones</h1>
 <h2>Seleccione una operación para continuar.</h2>
 <div class="align-content-center">
     <button type="button" id="btn-balance" class="btn btn-primary" onclick="location.href='Balance'">Balance</button>
@@ -18,7 +16,7 @@
             <th scope="col">Tarjeta</th>
             <th scope="col">Código operación</th>
             <th scope="col">Fecha de operación</th>
-            <th scope="col">Balance</th>
+            <th scope="col">Monto</th>
         </tr>
     </thead>
     <tbody>
@@ -35,10 +33,6 @@
                     {
                         <td>- @retiro.monto_retiro</td>
                     }
-                }
-                else
-                {
-                    <td>@operacion.Balance.saldo</td>
                 }
             </tr>
         }

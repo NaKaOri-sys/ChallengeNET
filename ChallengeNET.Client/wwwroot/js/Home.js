@@ -1,5 +1,6 @@
 ﻿$(document).ready(function () {
     $('#campo').inputmask('9999-9999-9999');
+    $('#btn-exit').hide();
 });
 $('#btn-submit').on('click', {}, function () {
     let campoValue = $('#campo').val();

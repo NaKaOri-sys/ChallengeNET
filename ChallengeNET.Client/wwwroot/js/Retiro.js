@@ -4,18 +4,18 @@
         alert("Por favor, ingresa el monto antes de continuar.")
         return;
     }
-    $.post("/Operaciones/ValidateMontoDinero", { monto_retiro: campoValue }
+    $.post("/Operacion/ValidateMontoRetiro", { monto_retiro: campoValue }
     ).done(function (response) {
-        
-    }).fail(function (xhr, status, error) {
-        alert('Ha excedido el saldo que tiene en su cuenta, su saldo es: $' + error);
+        $.post("/Operacion/RetiroDinero", { monto_retiro: campoValue }
+        ).done(function (response) {
+            window.location.href = "/Operacion/RetiroExitoso";
+        }).fail(function (xhr, status, error) {
+            window.location.href = "/Home/Error";
+        });
+    }).fail(function (jqXHR, textStatus) {
+        alert('Ha excedido el saldo que tiene en su cuenta, su saldo es: $' + jqXHR.responseText);
         return;
     });
 
-    $.post("/Operaciones/RetiroDinero", { monto_retiro: campoValue }
-    ).done(function (response) {
-        window.location.href = "/Operaciones/RetiroExitoso";
-    }).fail(function (xhr, status, error) {
-        window.location.href = "/Home/Error";
-    });
+
 });
